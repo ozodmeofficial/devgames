@@ -1,9 +1,9 @@
 <!doctype html>
 <!-- Based on Flexbox Froggy by Thomas Park (https://github.com/thomaspark/flexboxfroggy), MIT License. -->
-<html lang="en">
+<html lang="uz">
   <head>
     <meta charset="utf-8">
-    <title>Flexbox Froggy - A game for learning CSS flexbox</title>
+    <title>Flexbox Froggy - CSS flexbox’ni o‘rganish uchun o‘yin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:url"           content="https://flexboxfroggy.com">
     <meta property="og:type"          content="website">
@@ -790,9 +790,9 @@ button:not(.disabled):hover {
             <span class="triangle"></span>
           </span>
           <span id="level-indicator">
-            <span id="labelLevel" class="translate">Level</span>
+            <span id="labelLevel" class="translate">Bosqich</span>
             <span class="current">1</span>
-            <span id="labelOf" class="translate">of</span>
+            <span id="labelOf" class="translate">/</span>
             <span class="total">1</span>
             <span class="caret">▾</span>
           </span>
@@ -801,7 +801,7 @@ button:not(.disabled):hover {
           </span>
           <div id="levelsWrapper" class="tooltip">
             <div id="levels"></div>
-            <div id="labelReset" class="translate">Reset</div>
+            <div id="labelReset" class="translate">Qaytadan boshlash</div>
           </div>
         </div>
       </div>
@@ -813,7 +813,7 @@ button:not(.disabled):hover {
           <textarea id="code" autofocus autocapitalize="none" spellcheck="false"></textarea>
           <pre id="after"></pre>
         </div>
-        <button id="next" class="translate">Next</button>
+        <button id="next" class="translate">Keyingi</button>
       </div>
       <div id="share">
         <div class="games">
@@ -833,17 +833,18 @@ button:not(.disabled):hover {
       </div>
 
       <div class="credits">
-        <span id="labelFooter" class="translate">Flexbox Froggy is created by</span>
+        <span id="labelFooter" class="translate">Flexbox Froggy muallifi:</span>
         <a href="https://codepip.com">Codepip</a> •
         <a href="https://youtube.com/codepip">YouTube</a> •
         <a href="https://twitter.com/playcodepip">Twitter</a> •
         <a href="https://github.com/thomaspark/flexboxfroggy/">GitHub</a> •
         <span id="settings">
-          <span id="labelSettings" class="toggle translate">Settings</span>
+          <span id="labelSettings" class="toggle translate">Sozlamalar</span>
           <span class="tooltip">
             <section>
               <h4 id="labelLanguage" class="translate">Language</h4>
               <select id="language">
+                <option value="uz">O‘zbekcha</option>
                 <option value="en">English</option>
                 <option value="es">Español</option>
                 <option value="fr">Français</option>
@@ -935,7 +936,7 @@ button:not(.disabled):hover {
         </span>
       </div>
       <div class="credits" style="margin-bottom: 1rem;">
-        <span id="gridGarden" class="translate">Want to learn more CSS? Play</span> <a href="https://codepip.com/games/grid-garden/">Grid Garden</a> or <a href="https://codepip.com/games/anchoreum/">Anchoreum</a>.
+        <span id="gridGarden" class="translate">CSS’ni ko‘proq o‘rganmoqchimisiz? O‘ynang:</span> <a href="https://codepip.com/games/grid-garden/">Grid Garden</a> yoki <a href="https://codepip.com/games/anchoreum/">Anchoreum</a>.
       </div>
     </section>
     <section id="view">
@@ -3785,9 +3786,114 @@ var messages = {
 
 </script>
     <script>
+(function() {
+  var uz = [
+    // 1
+    "<p>Flexbox Froggy’ga xush kelibsiz! Bu o‘yinda siz CSS kod yozib, Qurbaqajon va uning do‘stlariga yordam berasiz! <code>justify-content</code> xossasi yordamida bu qurbaqani o‘ng tomondagi nilufar bargiga olib boring. Bu xossa elementlarni gorizontal tekislaydi va quyidagi qiymatlarni qabul qiladi:</p><ul><li><code>flex-start</code>: Elementlar konteynerning chap tomoniga tekislanadi.</li><li><code>flex-end</code>: Elementlar konteynerning o‘ng tomoniga tekislanadi.</li><li><code>center</code>: Elementlar konteynerning markaziga tekislanadi.</li><li><code>space-between</code>: Elementlar orasida teng masofa qoldiriladi.</li><li><code>space-around</code>: Elementlar atrofida teng masofa qoldiriladi.</li></ul><p>Masalan, <code>justify-content: flex-end;</code> qurbaqani o‘ngga suradi.</p>",
+    // 2
+    "<p>Bu qurbaqalarni nilufar barglariga yetkazish uchun yana <code>justify-content</code> dan foydalaning. Esingizda bo‘lsin, bu CSS xossasi elementlarni gorizontal tekislaydi va quyidagi qiymatlarni qabul qiladi:</p><ul><li><code>flex-start</code>: Elementlar konteynerning chap tomoniga tekislanadi.</li><li><code>flex-end</code>: Elementlar konteynerning o‘ng tomoniga tekislanadi.</li><li><code>center</code>: Elementlar konteynerning markaziga tekislanadi.</li><li><code>space-between</code>: Elementlar orasida teng masofa qoldiriladi.</li><li><code>space-around</code>: Elementlar atrofida teng masofa qoldiriladi.</li></ul>",
+    // 3
+    "<p>Faqat <code>justify-content</code> yordamida uchala qurbaqaga ham o‘z nilufar bargini topishga yordam bering. Bu safar nilufar barglarining atrofida bo‘sh joy ko‘p.</p><p>Agar xossaning qiymatlarini unutib qo‘ysangiz, ularni ko‘rish uchun xossa nomini bosishingiz mumkin. <code>justify-content</code> ustiga bosib ko‘ring.</p>",
+    // 4
+    "<p>Endi chetdagi nilufar barglari qirg‘oqqa surilib ketdi va ular orasidagi masofa kattalashdi. <code>justify-content</code> dan foydalaning. Bu safar nilufar barglari orasidagi masofa bir xil.</p>",
+    // 5
+    "<p>Endi qurbaqalarni hovuzning tubiga yetkazish uchun <code>align-items</code> dan foydalaning. Bu CSS xossasi elementlarni vertikal tekislaydi va quyidagi qiymatlarni qabul qiladi:</p><ul><li><code>flex-start</code>: Elementlar konteynerning yuqorisiga tekislanadi.</li><li><code>flex-end</code>: Elementlar konteynerning pastiga tekislanadi.</li><li><code>center</code>: Elementlar konteynerning vertikal markaziga tekislanadi.</li><li><code>baseline</code>: Elementlar konteynerning tayanch chizig‘i bo‘yicha joylashadi.</li><li><code>stretch</code>: Elementlar konteynerni to‘ldirish uchun cho‘ziladi.</li></ul>",
+    // 6
+    "<p><code>justify-content</code> va <code>align-items</code> ni birga ishlatib, qurbaqani hovuzning markaziga olib boring.</p>",
+    // 7
+    "<p>Qurbaqalar yana hovuzni kesib o‘tishi kerak, bu safar atrofida bo‘sh joy ko‘p bo‘lgan nilufar barglariga. <code>justify-content</code> va <code>align-items</code> ni birga ishlating.</p>",
+    // 8
+    "<p>Qurbaqalar <code>flex-direction</code> yordamida o‘z nilufar barglari tartibida joylashishi kerak. Bu CSS xossasi elementlarning konteynerda qaysi yo‘nalishda joylashishini belgilaydi va quyidagi qiymatlarni qabul qiladi:</p><ul><li><code>row</code>: Elementlar matn yo‘nalishi bo‘yicha joylashadi.</li><li><code>row-reverse</code>: Elementlar matn yo‘nalishiga teskari joylashadi.</li><li><code>column</code>: Elementlar yuqoridan pastga joylashadi.</li><li><code>column-reverse</code>: Elementlar pastdan yuqoriga joylashadi.</li></ul>",
+    // 9
+    "<p><code>flex-direction</code> yordamida qurbaqalarga nilufar barglari ustunini topishga yordam bering. Bu CSS xossasi elementlarning konteynerda qaysi yo‘nalishda joylashishini belgilaydi va quyidagi qiymatlarni qabul qiladi:</p><ul><li><code>row</code>: Elementlar matn yo‘nalishi bo‘yicha joylashadi.</li><li><code>row-reverse</code>: Elementlar matn yo‘nalishiga teskari joylashadi.</li><li><code>column</code>: Elementlar yuqoridan pastga joylashadi.</li><li><code>column-reverse</code>: Elementlar pastdan yuqoriga joylashadi.</li></ul>",
+    // 10
+    "<p>Qurbaqalarni o‘z nilufar barglariga yetkazing. Ular yaqin ko‘rinsa-da, buning uchun <code>flex-direction</code> ham, <code>justify-content</code> ham kerak bo‘ladi.</p><p>E’tibor bering: yo‘nalishni teskari qator yoki ustunga o‘zgartirsangiz, boshi va oxiri ham almashadi.</p>",
+    // 11
+    "<p><code>flex-direction</code> va <code>justify-content</code> yordamida qurbaqalarga nilufar barglarini topishga yordam bering.</p><p>E’tibor bering: flex yo‘nalishi ustun bo‘lganda <code>justify-content</code> vertikal, <code>align-items</code> esa gorizontal yo‘nalishda ishlaydi.</p>",
+    // 12
+    "<p><code>flex-direction</code> va <code>justify-content</code> yordamida qurbaqalarga nilufar barglarini topishga yordam bering.</p>",
+    // 13
+    "<p><code>flex-direction</code>, <code>justify-content</code> va <code>align-items</code> yordamida qurbaqalarga nilufar barglarini topishga yordam bering.</p>",
+    // 14
+    "<p>Ba’zan konteynerdagi qator yoki ustun tartibini teskari qilish yetarli bo‘lmaydi. Bunday hollarda alohida elementlarga <code>order</code> xossasini qo‘llashimiz mumkin. Odatda elementlarning qiymati 0 ga teng, lekin bu xossa orqali unga musbat yoki manfiy butun son (-2, -1, 0, 1, 2) berish mumkin.</p><p><code>order</code> xossasi yordamida qurbaqalarni nilufar barglariga mos tartibda joylashtiring.</p>",
+    // 15
+    "<p><code>order</code> xossasi yordamida qizil qurbaqani o‘z nilufar bargiga yuboring.</p>",
+    // 16
+    "<p>Alohida elementlarga qo‘llash mumkin bo‘lgan yana bir xossa — <code>align-self</code>. Bu xossa <code>align-items</code> bilan bir xil qiymatlarni qabul qiladi va faqat o‘sha element uchun ishlaydi.</p>",
+    // 17
+    "<p>Qurbaqalarni manziliga yetkazish uchun <code>order</code> ni <code>align-self</code> bilan birga ishlating.</p>",
+    // 18
+    "<p>Voy! Qurbaqalarning hammasi bitta qator nilufar barglariga siqilib qolibdi. Ularni <code>flex-wrap</code> xossasi yordamida yoyib joylashtiring. Bu xossa quyidagi qiymatlarni qabul qiladi:</p><ul><li><code>nowrap</code>: Barcha elementlar bitta qatorga sig‘diriladi.</li><li><code>wrap</code>: Elementlar keyingi qatorlarga o‘tkaziladi.</li><li><code>wrap-reverse</code>: Elementlar keyingi qatorlarga teskari tartibda o‘tkaziladi.</li></ul>",
+    // 19
+    "<p><code>flex-direction</code> va <code>flex-wrap</code> ni birga ishlatib, bu qurbaqalar qo‘shinini uchta tartibli ustunga tizing.</p>",
+    // 20
+    "<p><code>flex-direction</code> va <code>flex-wrap</code> xossalari shu qadar ko‘p birga ishlatiladiki, ularni birlashtirish uchun <code>flex-flow</code> qisqartma xossasi yaratilgan. Bu qisqartma xossa ikki xossaning qiymatlarini bo‘sh joy bilan ajratib qabul qiladi.</p><p>Masalan, <code>flex-flow: row wrap</code> elementlarni qator qilib joylashtiradi va keyingi qatorlarga o‘tkazadi.</p><p>Oldingi bosqichni <code>flex-flow</code> yordamida takrorlab ko‘ring.</p>",
+    // 21
+    "<p>Qurbaqalar butun hovuz bo‘ylab tarqalib ketgan, nilufar barglari esa yuqorida to‘planib qolgan. Bir nechta qatorning bir-biridan qanday masofada joylashishini <code>align-content</code> yordamida belgilashingiz mumkin. Bu xossa quyidagi qiymatlarni qabul qiladi:</p><ul><li><code>flex-start</code>: Qatorlar konteynerning yuqorisiga to‘planadi.</li><li><code>flex-end</code>: Qatorlar konteynerning pastiga to‘planadi.</li><li><code>center</code>: Qatorlar konteynerning vertikal markaziga to‘planadi.</li><li><code>space-between</code>: Qatorlar orasida teng masofa qoldiriladi.</li><li><code>space-around</code>: Qatorlar atrofida teng masofa qoldiriladi.</li><li><code>stretch</code>: Qatorlar konteynerni to‘ldirish uchun cho‘ziladi.</li></ul><p>Bu chalkash tuyulishi mumkin, lekin <code>align-content</code> qatorlar orasidagi masofani belgilaydi, <code>align-items</code> esa elementlarning konteyner ichida umuman qanday tekislanishini belgilaydi. Faqat bitta qator bo‘lsa, <code>align-content</code> hech qanday ta’sir qilmaydi.</p>",
+    // 22
+    "<p>Endi oqim nilufar barglarini pastga to‘plab qo‘ydi. Qurbaqalarni u yerga olib borish uchun <code>align-content</code> dan foydalaning.</p>",
+    // 23
+    "<p>Qurbaqalar bazm qilishdi, endi uyga qaytish vaqti keldi. Ularni nilufar barglariga yetkazish uchun <code>flex-direction</code> va <code>align-content</code> ni birga ishlating.</p>",
+    // 24
+    "<p>O‘rgangan CSS xossalaringiz yordamida qurbaqalarni oxirgi marta uyiga olib boring:</p><ul><li><code>justify-content</code></li><li><code>align-items</code></li><li><code>flex-direction</code></li><li><code>order</code></li><li><code>align-self</code></li><li><code>flex-wrap</code></li><li><code>flex-flow</code></li><li><code>align-content</code></li></ul>"
+  ];
+
+  for (var i = 0; i < levels.length; i++) {
+    levels[i].instructions.uz = uz[i];
+  }
+
+  levelWin.instructions.uz = "<p>Siz g‘alaba qozondingiz! Flexbox’ni puxta o‘zlashtirganingiz tufayli barcha qurbaqalarni nilufar barglariga yetkazdingiz. Qarang, ular qanchalik xursand!</p><p>Agar bu sizga yoqqan bo‘lsa, CSS maketining yana bir kuchli imkoniyatini o‘rganish uchun <a href=\"https://codepip.com/games/grid-garden/\">Grid Garden</a> o‘yiniga albatta kiring. Boshqa dasturlash o‘yinlarini <a href=\"https://codepip.com/\">Codepip</a> saytida topishingiz mumkin. Flexbox Froggy’ni do‘stlaringizga ham ulashishni unutmang!</p>";
+
+  var ui = {
+    languageActive: 'O‘zbekcha',
+    next: 'Keyingi',
+    labelFooter: 'Flexbox Froggy muallifi:',
+    labelLevel: 'Bosqich',
+    labelOf: '/',
+    title: 'Flexbox Froggy - CSS flexbox’ni o‘rganish uchun o‘yin',
+    labelReset: 'Qaytadan boshlash',
+    warningReset: 'O‘yinni qaytadan boshlashni xohlaysizmi?\n\nSaqlangan natijalaringiz o‘chib ketadi va o‘yin boshidan boshlanadi.',
+    gridGarden: 'CSS’ni ko‘proq o‘rganmoqchimisiz? O‘ynang:',
+    labelLanguage: 'Til',
+    labelSettings: 'Sozlamalar',
+    labelDifficulty: 'Qiyinlik darajasi',
+    labelColorblind: 'Daltoniklar rejimi',
+    labelColorblindOff: 'O‘chiq',
+    labelColorblindOn: 'Yoqilgan',
+    labelDifficultyEasy: 'Boshlang‘ich',
+    labelDifficultyMedium: 'O‘rta - ko‘rsatmalarsiz',
+    labelDifficultyHard: 'Ekspert - ko‘rsatmalarsiz va tasodifiy bosqichlar'
+  };
+
+  for (var key in ui) {
+    if (messages[key]) {
+      messages[key].uz = ui[key];
+    }
+  }
+
+  var d = {
+    'align-content': '<p>Kesishuvchi o‘qda bo‘sh joy bo‘lganda flex konteyner ichidagi qatorlarni tekislaydi.</p><code>flex-start</code> <code>flex-end</code> <code>center</code> <code>space-between</code> <code>space-around</code> <code>space-evenly</code> <code>stretch (standart)</code>',
+    'align-items': '<p>Flex elementlarni kesishuvchi o‘q bo‘ylab tekislaydi.</p><code>flex-start</code> <code>flex-end</code> <code>center</code> <code>baseline</code> <code>stretch (standart)</code>',
+    'align-self': '<p>Bitta flex elementni kesishuvchi o‘q bo‘ylab tekislaydi va <code>align-items</code> qiymatini bekor qiladi.</p><code>flex-start</code> <code>flex-end</code> <code>center</code> <code>baseline</code> <code>stretch</code>',
+    'flex-direction': '<p>Asosiy o‘qning yo‘nalishini belgilaydi.</p><code>row (standart)</code> <code>row-reverse</code> <code>column</code> <code>column-reverse</code>',
+    'flex-flow': '<p><code>flex-direction</code> va <code>flex-wrap</code> uchun qisqartma xossa.</p><code>&lt;flex-direction&gt; &lt;flex-wrap&gt;</code>',
+    'flex-wrap': '<p>Flex elementlar majburan bitta qatorda turadimi yoki bir nechta qatorga o‘tishi mumkinmi — shuni belgilaydi.</p><code>nowrap (standart)</code> <code>wrap</code> <code>wrap-reverse</code>',
+    'justify-content': '<p>Flex elementlarni asosiy o‘q bo‘ylab tekislaydi.</p><code>flex-start (standart)</code> <code>flex-end</code> <code>center</code> <code>space-between</code> <code>space-around</code> <code>space-evenly</code>',
+    'order': '<p>Flex elementning tartib raqamini belgilaydi.</p><code>&lt;butun son&gt; (... -1, 0 (standart), 1, ...)</code>'
+  };
+
+  for (var prop in d) {
+    if (docs[prop]) {
+      docs[prop].uz = d[prop];
+    }
+  }
+})();
+
+</script>
+    <script>
 var game = {
   colorblind: (localStorage.colorblind && JSON.parse(localStorage.colorblind)) || 'false',
-  language: window.location.hash.substring(1) || 'en',
+  language: window.location.hash.substring(1) || 'uz',
   difficulty: 'easy',
   level: parseInt(localStorage.level, 10) || 0,
   answers: (localStorage.answers && JSON.parse(localStorage.answers)) || {},
@@ -3796,13 +3902,6 @@ var game = {
   clickedCode: null,
 
   start: function() {
-    // navigator.language can include '-'
-    // ref: https://developer.mozilla.org/en-US/docs/Web/API/NavigatorLanguage/language
-    var requestLang = window.navigator.language.split('-')[0];
-    if (window.location.hash === '' && requestLang !== 'en' && messages.languageActive.hasOwnProperty(requestLang)) {
-      game.language = requestLang;
-      window.location.hash = requestLang;
-    }
 
     game.translate();
     $('#level-counter .total').text(levels.length);
@@ -3960,7 +4059,7 @@ var game = {
       localStorage.setItem('solved', JSON.stringify(game.solved));
       localStorage.setItem('colorblind', JSON.stringify(game.colorblind));
     }).on('hashchange', function() {
-      game.language = window.location.hash.substring(1) || 'en';
+      game.language = window.location.hash.substring(1) || 'uz';
       game.translate();
 
       $('#tweet iframe').remove();
@@ -3972,7 +4071,7 @@ var game = {
         twttr.widgets.load();
       }
 
-      if (game.language === 'en') {
+      if (game.language === 'uz') {
         history.replaceState({}, document.title, './');
       }
     });
